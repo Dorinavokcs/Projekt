@@ -29,6 +29,10 @@ main{
     background-size: cover;
     border-radius: 4rem;
     margin: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 .icon{width: 3rem;}
 header{
@@ -38,3 +42,11 @@ header{
     margin: 2rem 0 0 2rem;
 }
 header h2{font-size: xx-large;}
+
+.card {
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 50px;
+    font-size: 2rem;
+    color: #fff;
+}
