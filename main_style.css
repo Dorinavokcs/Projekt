@@ -1,6 +1,10 @@
-*{box-sizing: border-box; padding: 0; margin: 0;}
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
 
-:root{
+:root {
     --platinum: #DAE2DBff;
     --chinese-violet: #6F6479ff;
     --celeste: #A9ECF2ff;
@@ -8,13 +12,13 @@
     --non-photo-blue: #93DCEFff;
 }
 
-body{
-    background-color: rgba(192, 172, 172, 0.75);     
+body {
+    background-color: rgba(192, 172, 172, 0.75);
     transition: backgorund-color 0.5s ease;
     margin: 0;
 }
 
-main{
+main {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,11 +26,11 @@ main{
 
 }
 
-.container{
+.container {
     background-image: url("./img/main_ex.png");
     width: 65%;
     height: 1875px;
-    background-repeat: no-repeat; 
+    background-repeat: no-repeat;
     background-size: cover;
     border-radius: 4rem;
     margin: 4rem;
@@ -35,15 +39,22 @@ main{
     align-items: center;
     flex-direction: column;
 }
-.icon{width: 3rem;}
-header{
+
+.icon {
+    width: 3rem;
+}
+
+header {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
     margin: 2rem 0 0 2rem;
 }
-header h2{font-size: xx-large;}
+
+header h2 {
+    font-size: xx-large;
+}
 
 .card {
     border-radius: 8px;
@@ -53,6 +64,13 @@ header h2{font-size: xx-large;}
     color: #fff;
     text-align: center;
 }
-.k{
+
+.k {
     line-height: 250%
+}
+
+.hello-szoveg {
+    font-size: 36px;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
 }
