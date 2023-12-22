@@ -9,8 +9,9 @@
 }
 
 body{
-    background-color: rgba(24, 22, 22, 0.75);     
-
+    background-color: rgba(192, 172, 172, 0.75);     
+    transition: backgorund-color 0.5s ease;
+    margin: 0;
 }
 
 main{
@@ -38,18 +39,20 @@ main{
 header{
     display: flex;
     flex-direction: row;
+    justify-content: flex-start;
     align-items: center;
     margin: 2rem 0 0 2rem;
 }
 header h2{font-size: xx-large;}
-.main_header{
-    height: 15vh;
-    font-size: 2rem;
-    letter-spacing: 10px;
-}
+
 .card {
     border-radius: 8px;
-    height: 55vh;
-    width: 90vh;
+    padding: 20px;
+    margin-bottom: 50px;
+    font-size: 2rem;
     color: #fff;
+    text-align: center;
+}
+.k{
+    line-height: 250%
 }
