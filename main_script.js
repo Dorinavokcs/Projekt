@@ -1,9 +1,10 @@
-const header = document.querySelector(".header");
+function hattervaltozas(){
+    var body = document.body;
+    var szin = body.style.backgroundColor;
 
-const gomb =document.getElementById("");
-let isSotet = false;
-const sotet =(event) =>{
-    event.target.classList.toggle("sotet")
+    if (szin !== 'grey'){
+        body.style.backgroundColor = 'grey';
+    }else{
+        body.style.backgroundColor = '';
+    }
 }
-
-gomb.addEventListener("click", sotet )
