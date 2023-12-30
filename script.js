@@ -1,16 +1,18 @@
-// script.js
 document.addEventListener('DOMContentLoaded', () => {
     const mineSweeper = document.getElementById('minesweeper');
     const gridSize = 9;
     const totalCells = gridSize * gridSize;
     const totalMines = 10; // Változtathatod a kívánt aknaszámra
+    const difficultySelect = document.getElementById('difficultySelect');
     let revealedCells = 0;
+    let currentDifficulty = 'easy';
+ 
   
+    var indulasiIdo = new Date(); //oldallal egyutt toltodjon be.
+
     function initializeGame() {
       mineSweeper.innerHTML = '';
-      revealedCells = 0;
       const mines = Array(totalMines).fill(0).map(() => Math.floor(Math.random() * totalCells));
-      
       for (let i = 0; i < totalCells; i++) {
         const cell = document.createElement('div');
         cell.classList.add('cell');
@@ -24,7 +26,46 @@ document.addEventListener('DOMContentLoaded', () => {
   
         mineSweeper.appendChild(cell);
       }
+      
+
+      const difficultySelect = document.getElementById('difficultySelect');
+      difficultySelect.addEventListener('change', changeDifficulty);
     }
+    function changeDifficulty() {
+      const selectedDifficulty = difficultySelect.value;
+      // Frissiti a nehézséget.
+      if (selectedDifficulty !== currentDifficulty) {
+        currentDifficulty = selectedDifficulty; //nem biztos hogy mukodik, ez arra valo hogy ne valtozoon minden uj jatek utan a nehezseg az alapertelmezettre.
+      if (selectedDifficulty === 'easy') {
+        totalMines = 10;
+      } else if (selectedDifficulty === 'medium') {
+        totalMines = 15;
+      } else if (selectedDifficulty === 'hard') {
+        totalMines = 20;
+      }
+      initializeGame();
+    }
+  }
+
+   // Az idő számláló frissítése (1 másodperc) időközönként
+   setInterval(function() {
+    var jelenlegiIdo = new Date();
+    var elteltMasodperc = Math.floor((jelenlegiIdo - indulasiIdo) / 1000);
+
+    var ora = Math.floor(elteltMasodperc / 3600);
+    var perc = Math.floor((elteltMasodperc % 3600) / 60);
+    var masodperc = elteltMasodperc % 60;
+
+    // az ora formazasa
+    var formazottIdo = (ora < 10 ? "0" : "") + ora + ":" +
+                       (perc < 10 ? "0" : "") + perc + ":" +
+                       (masodperc < 10 ? "0" : "") + masodperc;
+
+    // megjelenjen a html-en keresztul is.
+    document.getElementById("ido").textContent = formazottIdo;
+}, 1000);
+
+
   
     function revealCell(cell, mines) {
       const index = parseInt(cell.dataset.index);
@@ -114,3 +155,17 @@ document.addEventListener('DOMContentLoaded', () => {
   
     initializeGame();
   });
+
+  cells.forEach(cell => {
+    cell.addEventListener('click', () => {
+      if (rotationEnabled) {
+        cell.classList.add('clicked');
+        setTimeout(() => {
+          cell.classList.remove('clicked');
+        }, 300);
+      }
+      
+    });
+  });
+
+  
