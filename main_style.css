@@ -48,7 +48,7 @@ main{
     align-items: center;
     flex-direction: column;
 }
-.icon{width: 3rem;}
+.icon{width: 7rem; height: 7rem;}
 header{
     display: flex;
     flex-direction: row;
@@ -74,3 +74,21 @@ p{
    margin-bottom: 2rem; 
 }
 h2{margin-bottom: 1rem;}
+.hello-szoveg{font-size: 500%;}
+.akna{font-size: 200%;}
+.jatek{
+    text-decoration: none;
+    color: black;
+    margin-top: 100px;
+    background-color: rgb(128,128,128);
+    font-size: 150%;
+
+}
+.gomb{
+    background-color: rgb(247,202,201);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    font-size: 20px;
+    margin-left: auto;
+}
