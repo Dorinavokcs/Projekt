@@ -14,11 +14,25 @@
         <h2>AknaMania</h2>
     </header>
 <main>
-    
+ 
+  
+
 <div class="container">
     <div class="window">
         <div class="title-bar">
           <div class="title">Aknakereső</div>
+          <label for="difficulty" class="difText">Válassz nehézséget:</label>
+<select id="difficultySelect">
+  <option value="easy">Könnyű</option>
+  <option value="medium">Közepes</option>
+  <option value="hard">Nehéz</option>
+</select>
+
+
+
+<button onclick="changeDifficulty()">OK!</button>
+<p id="ido">00:00</p>
+
           <div class="buttons">
             <div class="button minimize"></div>
             <div class="button maximize"></div>
