@@ -114,7 +114,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeGame();
   });
   
-=======
 // script.js
 document.addEventListener('DOMContentLoaded', () => {
     const mineSweeper = document.getElementById('minesweeper');

@@ -1,73 +1,88 @@
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
+*{box-sizing: border-box; padding: 0; margin: 0;}
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&family=Nunito:wght@400;700&display=swap');
 
-:root {
+:root{
     --platinum: #DAE2DBff;
     --chinese-violet: #6F6479ff;
     --celeste: #A9ECF2ff;
     --celeste-2: #AFEFF5ff;
     --non-photo-blue: #93DCEFff;
 }
+
 body{
-    background-color: rgba(192, 172, 172, 0.75);
+    background-color: rgba(192, 172, 172, 0.75);     
     transition: backgorund-color 0.5s ease;
     margin: 0;
+    font-family: 'Nunito', sans-serif;
 
 }
-   
 
-main {
+main{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
 }
-
-.container {
+.maincontainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 1450px;
     background-image: url("./img/main_ex.png");
     width: 65%;
-    height: 1875px;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; 
     background-size: cover;
     border-radius: 4rem;
     margin: 4rem;
+
+}
+.main_img{
+    height: 75vh;
+    justify-content: top;
+}
+.container{
+    height: 100vh;
     display: flex;
-    justify-content: center;
+    justify-content: top;
     align-items: center;
     flex-direction: column;
 }
-
-.icon {
-    width: 3rem;
-}
-
-header {
+.icon{width: 7rem; height: 7rem;}
+header{
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
     margin: 2rem 0 0 2rem;
 }
-
-header h2 {
-    font-size: xx-large;
-}
+header h2{font-size: xx-large;}
 
 .card {
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 50px;
-    font-size: 2rem;
+    font-size: 20px;
     color: #fff;
+    height: 40vh;
     text-align: center;
-    padding-top: 300px;
+    padding: 0 45px 0px 45px;
+    letter-spacing: .5px;
 }
 .k{
     line-height: 250%;
+    letter-spacing: 2px;
+}
+p{
+   margin-bottom: 2rem; 
+}
+h2{margin-bottom: 1rem;}
+.hello-szoveg{font-size: 500%;}
+.akna{font-size: 200%;}
+.jatek{
+    text-decoration: none;
+    color: black;
+    margin-top: 100px;
+    background-color: rgb(128,128,128);
+    font-size: 150%;
+
 }
 .gomb{
     background-color: rgb(247,202,201);
@@ -76,10 +91,4 @@ header h2 {
     margin: 10px;
     font-size: 20px;
     margin-left: auto;
-}
-.jatek{
-    text-decoration: none;
-    color: black;
-    margin-top: 100px;
-
 }
