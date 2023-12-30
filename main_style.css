@@ -11,17 +11,13 @@
     --celeste-2: #AFEFF5ff;
     --non-photo-blue: #93DCEFff;
 }
-<<<<<<< HEAD
 body{
-    background-color: rgba(192, 172, 172, 0.75);     
-=======
-
-body {
     background-color: rgba(192, 172, 172, 0.75);
->>>>>>> bfe5d5a37a8bff1ae86647c538c07151273b3617
     transition: backgorund-color 0.5s ease;
     margin: 0;
+
 }
+   
 
 main {
     display: flex;
@@ -70,20 +66,7 @@ header h2 {
     text-align: center;
     padding-top: 300px;
 }
-<<<<<<< HEAD
 .k{
     line-height: 250%;
     
 }
-=======
-
-.k {
-    line-height: 250%
-}
-
-.hello-szoveg {
-    font-size: 40px;
-    opacity: 1;
-    transition: opacity 1s ease-in-out;
-}
->>>>>>> bfe5d5a37a8bff1ae86647c538c07151273b3617
