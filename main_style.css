@@ -1,4 +1,5 @@
 *{box-sizing: border-box; padding: 0; margin: 0;}
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&family=Nunito:wght@400;700&display=swap');
 
 :root{
     --platinum: #DAE2DBff;
@@ -12,6 +13,8 @@ body{
     background-color: rgba(192, 172, 172, 0.75);     
     transition: backgorund-color 0.5s ease;
     margin: 0;
+    font-family: 'Nunito', sans-serif;
+
 }
 
 main{
@@ -19,19 +22,29 @@ main{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
 }
-
-.container{
+.maincontainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 1450px;
     background-image: url("./img/main_ex.png");
     width: 65%;
-    height: 1875px;
     background-repeat: no-repeat; 
     background-size: cover;
     border-radius: 4rem;
     margin: 4rem;
+
+}
+.main_img{
+    height: 75vh;
+    justify-content: top;
+}
+.container{
+    height: 100vh;
     display: flex;
-    justify-content: center;
+    justify-content: top;
     align-items: center;
     flex-direction: column;
 }
@@ -46,13 +59,18 @@ header{
 header h2{font-size: xx-large;}
 
 .card {
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 50px;
-    font-size: 2rem;
+    font-size: 20px;
     color: #fff;
+    height: 40vh;
     text-align: center;
+    padding: 0 45px 0px 45px;
+    letter-spacing: .5px;
 }
 .k{
-    line-height: 250%
+    line-height: 250%;
+    letter-spacing: 2px;
 }
+p{
+   margin-bottom: 2rem; 
+}
+h2{margin-bottom: 1rem;}
