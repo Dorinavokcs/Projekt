@@ -230,10 +230,8 @@ document.addEventListener('DOMContentLoaded', () => {
   
     initializeGame();
   });
+
 ///idő számlálás///
-
-  
-
 let countdown;
 function button() {
   clearInterval(countdown);
@@ -256,4 +254,15 @@ function button() {
       timer.innerHTML = 'Vesztettél!';
     }
   }, 1000);
+}
+///nyerések számlálása///
+let nyeresek = 0;
+const winmatch = (event)=>{
+  const nyeres = minesweeper.style.backgroundColor;
+  if (nyeres === event.target.style.backgroundColor){
+    nyeresek++;
+    event.target.removeEventListener("click", (event)=>{
+      if(winmatch(event)){nyeresek++;}
+    })
+  }
 }
