@@ -1,4 +1,4 @@
-{box-sizing: border-box; padding: 0; margin: 0;}
+*{box-sizing: border-box; padding: 0; margin: 0;}
 
 :root{
     --platinum: #DAE2DBff;
@@ -24,9 +24,9 @@ main{
 }
 
 .container{
-    background-image: url("./img/main_ex.png");
-    width: 65%;
-    height: 1875px;
+    background-image: url("../img/main_ex.png");
+    width: 60%;
+    height: 1800px;
     background-repeat: no-repeat; 
     background-size: cover;
     border-radius: 4rem;
@@ -65,13 +65,13 @@ header h2{font-size: xx-large;}
 .cell.revealed {
     background-color: #0c0fd1;
 
-  }
+}
 
   
-  .cell.number {
+.cell.number {
     color: #f00;
-  }
-  .win-message {
+}
+.win-message {
     display: none;
     position: absolute;
     top: 50%;
@@ -81,4 +81,14 @@ header h2{font-size: xx-large;}
     padding: 20px;
     border: 2px solid #ccc;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
+}
+.timer {
+  font-size: 4rem;
+  align-items: center;
+  justify-content: center;
+}
+button{
+  padding: .3rem 1rem;
+  font-size: 1rem;
+  border-radius: 5px;
+}

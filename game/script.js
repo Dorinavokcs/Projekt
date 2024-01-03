@@ -230,3 +230,30 @@ document.addEventListener('DOMContentLoaded', () => {
   
     initializeGame();
   });
+///idő számlálás///
+
+  
+
+let countdown;
+function button() {
+  clearInterval(countdown);
+  let timer = document.getElementById('timer');
+  let time = 60;
+
+  countdown = setInterval(function() {
+    time--;
+    let minutes = Math.floor(time / 60);
+    let seconds = time % 60;
+
+    if (seconds < 10) {
+      seconds = '0' + seconds;
+    }
+
+    timer.innerHTML = minutes + ':' + seconds;
+
+    if (time <= 0) {
+      clearInterval(countdown);
+      timer.innerHTML = 'Vesztettél!';
+    }
+  }, 1000);
+}
