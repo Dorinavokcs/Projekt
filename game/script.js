@@ -1,10 +1,10 @@
-document.addEventListener('DOMContentLoaded', () => {
+/*document.addEventListener('DOMContentLoaded', () => {
     const mineSweeper = document.getElementById('minesweeper');
     const gridSize = 9;
     const totalCells = gridSize * gridSize;
     const totalMines = 10; // Változtathatod a kívánt aknaszámra
     let revealedCells = 0;
-  
+   var win =0;
     function initializeGame() {
       mineSweeper.innerHTML = '';
       revealedCells = 0;
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (cell.classList.contains('mine')) {
         alert('Aknára léptél :(');
         revealMines(mines);
-        initializeGame();
+       // initializeGame();
       } else {
         const mineCount = countNearbyMines(index, mines);
         cell.classList.add('revealed', 'number');
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
         if (revealedCells === totalCells - totalMines) {
           showWinMessage();
-          initializeGame();
+         // initializeGame();
         }
   
         if (mineCount === 0) {
@@ -101,6 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   
     function showWinMessage() {
+      win++;
       const winMessage = document.createElement('div');
       winMessage.classList.add('win-message');
       winMessage.textContent = 'Gratulálunk! Nyertél!';
@@ -112,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   
     initializeGame();
-  });
+  });*/
   
 // script.js
 document.addEventListener('DOMContentLoaded', () => {
@@ -121,7 +122,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalCells = gridSize * gridSize;
     const totalMines = 10; // Változtathatod a kívánt aknaszámra
     let revealedCells = 0;
-  
+  var wins = 0;
+  var started = false;
     function initializeGame() {
       mineSweeper.innerHTML = '';
       revealedCells = 0;
@@ -141,6 +143,14 @@ document.addEventListener('DOMContentLoaded', () => {
         mineSweeper.appendChild(cell);
       }
     }
+
+    function initializeRestartButton() {
+      var button = document.getElementById("restartButton");
+      document.getElementById("restartButton").addEventListener("click", ()=>{
+        initializeGame();
+        starttimer();
+      })
+    }
   
     function revealCell(cell, mines) {
       const index = parseInt(cell.dataset.index);
@@ -148,8 +158,12 @@ document.addEventListener('DOMContentLoaded', () => {
       if (cell.classList.contains('mine')) {
         alert('Aknára léptél :(');
         revealMines(mines);
-        initializeGame();
+       // initializeGame();
       } else {
+        if (!started) {
+          starttimer();
+          started = true;
+        }
         const mineCount = countNearbyMines(index, mines);
         cell.classList.add('revealed', 'number');
         cell.textContent = mineCount > 0 ? mineCount : '';
@@ -158,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
         if (revealedCells === totalCells - totalMines) {
           showWinMessage();
-          initializeGame();
+          //initializeGame();
         }
   
         if (mineCount === 0) {
@@ -218,9 +232,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   
     function showWinMessage() {
+      wins++;
       const winMessage = document.createElement('div');
       winMessage.classList.add('win-message');
       winMessage.textContent = 'Gratulálunk! Nyertél!';
+      document.getElementById("wins")
+      .innerHTML=wins;
       document.body.appendChild(winMessage);
   
       setTimeout(() => {
@@ -229,13 +246,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   
     initializeGame();
+    initializeRestartButton();
   });
 ///idő számlálás///
 
   
 
 let countdown;
-function button() {
+function starttimer() {
+//  initializeGame();
   clearInterval(countdown);
   let timer = document.getElementById('timer');
   let time = 60;
@@ -256,4 +275,6 @@ function button() {
       timer.innerHTML = 'Vesztettél!';
     }
   }, 1000);
+
+
 }
