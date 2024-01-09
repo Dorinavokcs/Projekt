@@ -248,10 +248,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeGame();
     initializeRestartButton();
   });
+
 ///idő számlálás///
-
-  
-
 let countdown;
 function starttimer() {
 //  initializeGame();
@@ -275,6 +273,4 @@ function starttimer() {
       timer.innerHTML = 'Vesztettél!';
     }
   }, 1000);
-
-
 }
