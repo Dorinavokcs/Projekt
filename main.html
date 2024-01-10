@@ -1,32 +1,40 @@
 
 <!DOCTYPE html>
 <html lang="hu">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main_style.css">
-    <script src="main_script.js"></script>
-    <title>Aknakereső</title>
-</head>
-<body>
-    <header>
-        <img src="./img/icon.png" class="icon" alt="icon" title="icon">
-        <h2>AknaMania</h2>
-        <button id="gomb" class="gomb">Világos/sötét</button>
-    </header>
-    <main>
-        <div class="container"> 
-            <div class="card">
-                <h2 class="k">Aknakereső</h2>
-                <p>Az aknakereső (Minesweeper) számítógépes játék, melynek célja a mezőn lévő összes akna megtalálása, illetve azok elkerülése. Az aknakereső alapvetően logikai játék, de bármely játékmenetben előfordulhat olyan szituáció is, amelyben a helyes megoldás a szerencsén múlik. Egyszemélyes játék, de létezik kétszemélyes változata is, annak szabályai és stratégiái néhány ponton eltérnek az egyszemélyes verzióétól</p>
-                
-                <h2 class="k" >Magyarázat</h2>
-                <p>Ez egy logikai játék. Amelynek az a lényege, hogy az aknákat kikell kerülni miközben a mezőt tárod fel. A mezőkben láthatóak számok amelyik azt jelzik hogy hány akna található a szomszédos mezők között. A cél, hogy minden mezőt felnyiss anélkül hogy akár egy aknát is felfednél.</p>
-
-                <h2 class="k">Néhézség álításakor felugró ablak</h2>
-                <p>Figyelj jobban mostmár nehezebb lesz a játék!</p>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="main_style.css">
+        <script src="main_script.js" defer></script>
+        <title>Aknakereső</title>
+    </head>
+    <body>
+        <header>
+            <img src="./img/icon.png" class="icon" alt="icon" title="icon">
+            <h2 class="akna">AknaMania</h2>
+            <button class="gomb" onclick="hattervaltozas()">Világos/sötét</button>
+        </header>
+        <main>
+            <h1 class="hello-szoveg">Üdvözöllek az oldalon</h1>
+            <div class="maincontainer">
+                <div class="main_img"></div>
+                <div class="container"> 
+                    <div class="card">
+                        <h2 class="k">Aknakereső</h2>
+                        <p>Az aknakereső (Minesweeper) számítógépes játék, melynek célja a mezőn lévő összes akna megtalálása, illetve azok elkerülése. Az aknakereső alapvetően logikai játék, de bármely játékmenetben előfordulhat olyan szituáció is, amelyben a helyes megoldás a szerencsén múlik. Egyszemélyes játék, de létezik kétszemélyes változata is, annak szabályai és stratégiái néhány ponton eltérnek az egyszemélyes verzióétól</p>
+                        
+                        <h2 class="k" >Magyarázat</h2>
+                        <p>Ez egy logikai játék. Amelynek az a lényege, hogy az aknákat kikell kerülni miközben a mezőt tárod fel. A mezőkben láthatóak számok amelyik azt jelzik hogy hány akna található a szomszédos mezők között. A cél, hogy minden mezőt felnyiss anélkül hogy akár egy aknát is felfednél.</p>
+    
+                        <h2 class="k">Néhézség álításakor felugró ablak</h2>
+                        <p>Figyelj jobban mostmár nehezebb lesz a játék!</p>
+                        <br><br>
+                        <p>Kellemes és élményekben gazdag játékot kívánnak a készítők: <br><i>Ludvig-Cseri Dorina, Gyetvai Ádám és Palatinus Ágoston.</i></p>
+                        <a class="jatek" href="./game/game.html">Játék</a>
+                    </div>
+                </div> 
             </div>
-        </div> 
-    </main>
-</body>
+            
+        </main>
+    </body>
 </html>
