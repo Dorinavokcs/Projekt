@@ -1,235 +1,113 @@
+const aknaszam= 10;
+const dobozszam = 9;
+let aknakhelye = [];
+const sorhossz = 9;
 
-// script.js
-document.addEventListener('DOMContentLoaded', () => {
-    const mineSweeper = document.getElementById('minesweeper');
-    const gridSize = 9;
-    const totalCells = gridSize * gridSize;
-    const totalMines = 10; // Változtathatod a kívánt aknaszámra
-    let revealedCells = 0;
-  
-    function initializeGame() {
-      mineSweeper.innerHTML = '';
-      revealedCells = 0;
-      const mines = Array(totalMines).fill(0).map(() => Math.floor(Math.random() * totalCells));
-      
-      for (let i = 0; i < totalCells; i++) {
-        const cell = document.createElement('div');
-        cell.classList.add('cell');
-        cell.dataset.index = i;
-  
-        cell.addEventListener('click', () => revealCell(cell, mines));
-        
-        if (mines.includes(i)) {
-          cell.classList.add('mine');
-        }
-  
-        mineSweeper.appendChild(cell);
-      }
+
+const board = () =>{
+  const jatekfelulet = document.querySelector(".boxok");
+  for (let i = 0; i < sorhossz; i++) {
+    for (let j = 0; j < sorhossz; j++) {
+      const box = document.createElement("div");
+      box.classList.add("box");
+      box.dataset.i = i;
+      box.dataset.j = j;
+      box.addEventListener("click", boxmegjelenites);
+      jatekfelulet.appendChild(box);
     }
-  
-    function revealCell(cell, mines) {
-      const index = parseInt(cell.dataset.index);
-  
-      if (cell.classList.contains('mine')) {
-        alert('Aknára léptél :(');
-        revealMines(mines);
-        initializeGame();
-      } else {
-        const mineCount = countNearbyMines(index, mines);
-        cell.classList.add('revealed', 'number');
-        cell.textContent = mineCount > 0 ? mineCount : '';
-  
-        revealedCells++;
-  
-        if (revealedCells === totalCells - totalMines) {
-          showWinMessage();
-          initializeGame();
-        }
-  
-        if (mineCount === 0) {
-          revealEmptyArea(index, mines);
-        }
-      }
+  }
+}
+
+const aknakelhelyezese = () => {
+  aknakhelye = [];
+  while (aknakhelye.length < aknaszam) {
+    const sor = Math.floor(Math.random() * dobozszam);
+    const oszlop = Math.floor(Math.random() * dobozszam);
+    const újakna = `${sor}-${oszlop}`;
+
+    if (!aknakhelye.includes(újakna)) {
+      aknakhelye.push(újakna);
     }
-  
-    function countNearbyMines(index, mines) {
-      const adjacentIndices = getAdjacentIndices(index);
-      return adjacentIndices.filter((adjacentIndex) => mines.includes(adjacentIndex)).length;
+  }
+
+}
+const boxmegjelenites = (event) =>{
+  const sor = parseInt(event.target.dataset.i);
+  const oszlop = parseInt(event.target.dataset.j);
+  const box = document.querySelector(`.box[data-i="${sor}"][data-j="${oszlop}"]`);
+  const boxes = document.querySelectorAll(".box");
+  if (aknakhelye.includes(`${sor}-${oszlop}`)) {
+    alert("A játéknak vége! Aknára léptél.");
+    box.innerText = "💣";
+    resetGame();
+  } else {
+    const aknak_a_kozelben = kozeliaknakrogzitese(sor, oszlop);
+
+    if (aknak_a_kozelben > 0){
+      box.innerText = aknak_a_kozelben;
+    } else {
+    box.innerText = "";
     }
-  
-    function getAdjacentIndices(index) {
-      const row = Math.floor(index / gridSize);
-      const col = index % gridSize;
-      const indices = [];
-  
-      for (let i = Math.max(0, row - 1); i <= Math.min(row + 1, gridSize - 1); i++) {
-        for (let j = Math.max(0, col - 1); j <= Math.min(col + 1, gridSize - 1); j++) {
-          indices.push(i * gridSize + j);
-        }
-      }
-  
-      return indices;
-    }
-  
-    function revealEmptyArea(index, mines) {
-      const visited = new Set();
-      const queue = [index];
-  
-      while (queue.length > 0) {
-        const current = queue.shift();
-        const cell = mineSweeper.querySelector(`[data-index="${current}"]`);
-        const mineCount = countNearbyMines(current, mines);
-  
-        if (!visited.has(current)) {
-          visited.add(current);
-  
-          if (mineCount === 0) {
-            cell.classList.add('revealed');
-            const adjacentIndices = getAdjacentIndices(current);
-            queue.push(...adjacentIndices.filter((adjacentIndex) => !visited.has(adjacentIndex)));
-          } else {
-            cell.classList.add('revealed', 'number');
-            cell.textContent = mineCount;
-          }
+    
+    box.style.backgroundColor = "#ddd";
+  }
+}
+
+function kozeliaknakrogzitese(sor, oszlop) {
+  let count = 0;
+
+  for (let i = -1; i <= 1; i++) {
+    for (let j = -1; j <= 1; j++) {
+      const szomszedossor = sor + i;
+      const szomszedososzlop = oszlop + j;
+
+      if (szomszedossor >= 0 && szomszedossor < sorhossz && szomszedososzlop >= 0 && szomszedososzlop < sorhossz) {
+        if (aknakhelye.includes(`${szomszedossor}-${szomszedososzlop}`)) {
+          count++;
         }
       }
     }
-  
-    function revealMines(mines) {
-      mines.forEach((mineIndex) => {
-        const mineCell = mineSweeper.querySelector(`[data-index="${mineIndex}"]`);
-        mineCell.classList.add('revealed', 'mine');
-      });
-    }
-  
-    function showWinMessage() {
-      const winMessage = document.createElement('div');
-      winMessage.classList.add('win-message');
-      winMessage.textContent = 'Gratulálunk! Nyertél!';
-      document.body.appendChild(winMessage);
-  
-      setTimeout(() => {
-        winMessage.remove();
-      }, 3000);
-    }
-  
-    initializeGame();
+  }
+
+  return count;
+}
+
+function resetGame() {
+  const boxes = document.querySelectorAll(".box");
+
+  boxes.forEach(box => {
+    box.innerText = "";
+    box.style.backgroundColor = "";
   });
-  
-=======
-// script.js
-document.addEventListener('DOMContentLoaded', () => {
-    const mineSweeper = document.getElementById('minesweeper');
-    const gridSize = 9;
-    const totalCells = gridSize * gridSize;
-    const totalMines = 10; // Változtathatod a kívánt aknaszámra
-    let revealedCells = 0;
-  
-    function initializeGame() {
-      mineSweeper.innerHTML = '';
-      revealedCells = 0;
-      const mines = Array(totalMines).fill(0).map(() => Math.floor(Math.random() * totalCells));
-      
-      for (let i = 0; i < totalCells; i++) {
-        const cell = document.createElement('div');
-        cell.classList.add('cell');
-        cell.dataset.index = i;
-  
-        cell.addEventListener('click', () => revealCell(cell, mines));
-        
-        if (mines.includes(i)) {
-          cell.classList.add('mine');
-        }
-  
-        mineSweeper.appendChild(cell);
-      }
-    }
-  
-    function revealCell(cell, mines) {
-      const index = parseInt(cell.dataset.index);
-  
-      if (cell.classList.contains('mine')) {
-        alert('Aknára léptél :(');
-        revealMines(mines);
-        initializeGame();
-      } else {
-        const mineCount = countNearbyMines(index, mines);
-        cell.classList.add('revealed', 'number');
-        cell.textContent = mineCount > 0 ? mineCount : '';
-  
-        revealedCells++;
-  
-        if (revealedCells === totalCells - totalMines) {
-          showWinMessage();
-          initializeGame();
-        }
-  
-        if (mineCount === 0) {
-          revealEmptyArea(index, mines);
-        }
-      }
-    }
-  
-    function countNearbyMines(index, mines) {
-      const adjacentIndices = getAdjacentIndices(index);
-      return adjacentIndices.filter((adjacentIndex) => mines.includes(adjacentIndex)).length;
-    }
-  
-    function getAdjacentIndices(index) {
-      const row = Math.floor(index / gridSize);
-      const col = index % gridSize;
-      const indices = [];
-  
-      for (let i = Math.max(0, row - 1); i <= Math.min(row + 1, gridSize - 1); i++) {
-        for (let j = Math.max(0, col - 1); j <= Math.min(col + 1, gridSize - 1); j++) {
-          indices.push(i * gridSize + j);
-        }
-      }
-  
-      return indices;
-    }
-  
-    function revealEmptyArea(index, mines) {
-      const visited = new Set();
-      const queue = [index];
-  
-      while (queue.length > 0) {
-        const current = queue.shift();
-        const cell = mineSweeper.querySelector(`[data-index="${current}"]`);
-        const mineCount = countNearbyMines(current, mines);
-  
-        if (!visited.has(current)) {
-          visited.add(current);
-  
-          if (mineCount === 0) {
-            cell.classList.add('revealed');
-            const adjacentIndices = getAdjacentIndices(current);
-            queue.push(...adjacentIndices.filter((adjacentIndex) => !visited.has(adjacentIndex)));
-          } else {
-            cell.classList.add('revealed', 'number');
-            cell.textContent = mineCount;
-          }
-        }
-      }
-    }
-  
-    function revealMines(mines) {
-      mines.forEach((mineIndex) => {
-        const mineCell = mineSweeper.querySelector(`[data-index="${mineIndex}"]`);
-        mineCell.classList.add('revealed', 'mine');
-      });
-    }
-  
-    function showWinMessage() {
-      const winMessage = document.createElement('div');
-      winMessage.classList.add('win-message');
-      winMessage.textContent = 'Gratulálunk! Nyertél!';
-      document.body.appendChild(winMessage);
-  
-      setTimeout(() => {
-        winMessage.remove();
-      }, 3000);
-    }
-  
-    initializeGame();
-  });
+
+  aknakelhelyezese();
+}
+
+board();
+aknakelhelyezese();
+
+
+///idő szamlalas///
+let countdown;
+function starttimer() {
+clearInterval(countdown);
+let timer = document.getElementById("timer");
+let time = 60;
+
+countdown = setInterval(function() {
+  time--;
+  let minutes = Math.floor(time / 60);
+  let seconds = time % 60;
+
+  if (seconds < 10) {
+    seconds = "0" + seconds;
+  }
+
+  timer.innerHTML = minutes + ":" + seconds;
+
+  if (time <= 0) {
+    clearInterval(countdown);
+    timer.innerHTML = "Vesztettel!";
+  }
+}, 1000);
+}
