@@ -1,9 +1,11 @@
+//alapértékek deklarálása//
 const aknaszam= 10;
 const dobozszam = 9;
 let aknakhelye = [];
 const sorhossz = 9;
 
 
+//A játék felület megvalósítása, mindegyik kattintható 'dobozt' különböző azonosítóval látok el, amit aztán egy osztályba sorolok, így a későbbiekben könnyen meg lehet határozni//
 const board = () =>{
   const jatekfelulet = document.querySelector(".boxok");
   for (let i = 0; i < sorhossz; i++) {
@@ -18,8 +20,10 @@ const board = () =>{
   }
 }
 
+
+//Az aknák elhelyezése randomizált módon az egész játék felületen//
 const aknakelhelyezese = () => {
-  aknakhelye = [];
+  aknakhelye = []; /*űrítem a korábban elhelyezett aknákat, emellett legelső induláskor létrehozzom őket.*/
   while (aknakhelye.length < aknaszam) {
     const sor = Math.floor(Math.random() * dobozszam);
     const oszlop = Math.floor(Math.random() * dobozszam);
@@ -29,8 +33,10 @@ const aknakelhelyezese = () => {
       aknakhelye.push(újakna);
     }
   }
-
 }
+
+
+//A játék felületen való kattintás rögzítése. Megvizsgálja, hogy a felhasználó aknára lépett-e vagy sem, ennek függvényében cselekszik.//
 const boxmegjelenites = (event) =>{
   const sor = parseInt(event.target.dataset.i);
   const oszlop = parseInt(event.target.dataset.j);
@@ -46,13 +52,15 @@ const boxmegjelenites = (event) =>{
     if (aknak_a_kozelben > 0){
       box.innerText = aknak_a_kozelben;
     } else {
-    box.innerText = "";
+    box.innerText = "0";
     }
     
     box.style.backgroundColor = "#ddd";
   }
 }
 
+
+//Megvizsgálja, hogy a felhasználó álltal kattintot 'doboz'-hoz mennyi szomszédos akna található. A kattintott 'doboz'-hoz képest szomszédos aknák mennyiségéhez képest kap értéket a kattintott 'doboz' 0 - nincs szomszédos akna; 1 - egy szomszédos akna található; 2 - két darab szomszédos akna található; 3 - három szomszédos akna található a kattintott 'doboz' körül.//
 function kozeliaknakrogzitese(sor, oszlop) {
   let count = 0;
 
@@ -67,11 +75,11 @@ function kozeliaknakrogzitese(sor, oszlop) {
         }
       }
     }
-  }
-
-  return count;
+  } return count;
 }
 
+
+//A játék felület visszaállítása alapállásba, emellett az aknák elhelyezését is újragenerálja.//
 function resetGame() {
   const boxes = document.querySelectorAll(".box");
 
@@ -83,6 +91,7 @@ function resetGame() {
   aknakelhelyezese();
 }
 
+//A komponensek meghívása.//
 board();
 aknakelhelyezese();
 
