@@ -23,19 +23,23 @@
         
 <main>
                      <div class="container">
+                      <!--container--->
+                        <!--window--->
                         <div class="window">
                             <div class="title-bar">
                               <div class="title">Aknakereső</div>
                               <label for="difficulty" class="difText">Válassz nehézséget:</label>
                     <select id="difficultySelect">
+                      <!--difficulty selector--->
                       <option value="easy">Könnyű</option>
                       <option value="medium">Közepes</option>
                       <option value="hard">Nehéz</option>
                     </select>
                     
                     
-                    
+                    <!--difficulty selector--->
                     <button onclick="changeDifficulty()">OK!</button>
+                    <!--idő--->
                     <p id="ido">00:00</p>
                     
                               <div class="buttons">
@@ -45,10 +49,15 @@
                               </div>
                               
                             </div>
+                            <!--jatek--->
                             <div class="boxok"></div>
                         <div class="boxok">
-
                         </div></div>
+                        <!--Question Container.-->
+                        <div class="question-container"></div>
+                        <div class="help-button" onmouseover="showHelp()">?</div>
+                        <div class="help-text" id="helpText">A cellákra kell rákattintanod! Várd meg amíg teljesen megfordul a kiválasztott négyzeted! A piros szám jelzi hogy merre LEHET az akna! <p></p>
+                        Ha többet szeretnél tudni, kérlek térj vissza a <a href="main.html">Főoldalra!</a></div>
                     </select> 
                     
                     <div>
