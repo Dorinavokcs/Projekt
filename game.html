@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
+        <link rel="icon" type="image/x-icon" href="./img/icon.png">
+        <title>Aknakereső</title>
+    </head>
+    <body>
+        <header>
+            <img src="./img/icon.png" class="icon" alt="icon" title="icon">
+
+            <h2>AknaMania</h2>
+            <div class="navbar"><ul>
+                <li><a class="active" href="main.html">Főoldal</a></li>  <!-- ide johet barmi egyelore!! -->
+                <li><a href="game.html">Játék!</a></li>
+                <li><a href="story.html">a játék története</a></li>
+              </ul></div>
+            
+        </header>
+        
+<main>
+                     <div class="container">
+                      <!--container--->
+                        <!--window--->
+                        <div class="window">
+                            <div class="title-bar">
+                              <div class="title">Aknakereső</div>
+                              <label for="difficulty" class="difText">Válassz nehézséget:</label>
+                    <select id="difficultySelect">
+                      <!--difficulty selector--->
+                      <option value="easy">Könnyű</option>
+                      <option value="medium">Közepes</option>
+                      <option value="hard">Nehéz</option>
+                    </select>
+                    
+                    
+                    <!--difficulty selector--->
+                    <button onclick="changeDifficulty()">OK!</button>
+                    <!--idő--->
+                    <p id="ido">00:00</p>
+                    
+                              <div class="buttons">
+                                <div class="button minimize"></div>
+                                <div class="button maximize"></div>
+                                <div class="button close"></div>
+                              </div>
+                              
+                            </div>
+                            <!--jatek--->
+                            <div class="boxok"></div>
+                        <div class="boxok">
+                        </div></div>
+                        <!--Question Container.-->
+                        <div class="question-container"></div>
+                        <div class="help-button" onmouseover="showHelp()">?</div>
+                        <div class="help-text" id="helpText">A cellákra kell rákattintanod! Várd meg amíg teljesen megfordul a kiválasztott négyzeted! A piros szám jelzi hogy merre LEHET az akna! <p></p>
+                        Ha többet szeretnél tudni, kérlek térj vissza a <a href="main.html">Főoldalra!</a></div>
+                    </select> 
+                    
+                    <div>
+        </main>
+    </body>
+</html>

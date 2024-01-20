@@ -1,6 +1,6 @@
 function hattervaltozas(){
-    var body = document.body;
-    var szin = body.style.backgroundColor;
+    const body = document.body;
+    const szin = body.style.backgroundColor;
 
     if (szin !== 'grey'){
         body.style.backgroundColor = 'grey';
