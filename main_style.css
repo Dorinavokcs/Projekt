@@ -1,0 +1,166 @@
+*{box-sizing: border-box; padding: 0; margin: 0;}
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&family=Nunito:wght@400;700&display=swap');
+
+:root{
+    --platinum: #DAE2DBff;
+    --chinese-violet: #6F6479ff;
+    --celeste: #A9ECF2ff;
+    --celeste-2: #AFEFF5ff;
+    --non-photo-blue: #93DCEFff;
+}
+
+body{
+    background-color: rgba(192, 172, 172, 0.75);     
+    margin: 0;
+    font-family: 'Nunito', sans-serif;
+
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.maincontainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 1450px;
+    background-image: url("./img/main_ex.png");
+    background-position-x: center;
+    width: 65%;
+    background-repeat: no-repeat; 
+    background-size: cover;
+    border-radius: 4rem;
+    margin: 4rem;
+
+}
+.main_img{
+    height: 75vh;
+}
+.container{
+    height: 100vh;
+    display: flex;
+    justify-content: top;
+    align-items: center;
+    flex-direction: column;
+}
+.icon{width: 7rem;}
+header{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 2rem 0 0 2rem;
+}
+header h2{padding-top: 4.5vh;}
+
+.card {
+    font-size: 20px;
+    color: #fff;
+    height: 40vh;
+    text-align: center;
+    padding: 0 45px 0px 45px;
+    letter-spacing: .5px;
+}
+.k{
+    line-height: 250%;
+    letter-spacing: 2px;
+}
+p{
+   margin-bottom: 2rem; 
+}
+h2{margin-bottom: 1rem;}
+.hello-szoveg{font-size: 500%;}
+.akna{font-size: 200%;}
+.jatek{
+    text-decoration: none;
+    color: black;
+    margin-top: 100px;
+    background-color: rgb(128,128,128);
+    font-size: 150%;
+
+}
+.gomb{
+    background-color: rgb(247,202,201);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    font-size: 20px;
+    margin-left: auto;
+}
+
+
+@media(max-width: 1400px){
+    .maincontainer{width: 80%; height: 1400px;}
+}
+@media(max-width: 1200px){
+    .hello-szoveg{font-size: 400%;}
+    .icon{width: 5rem;}
+    p{font-size: 90%;}
+    .maincontainer{width: 80%; height: 1300px;}
+
+}
+@media(max-width: 1024px){
+    .hello-szoveg{font-size: 300%;}
+    .icon{width: 4rem;}
+    p{font-size: 77%;}
+    h2, .akna, .gomb{font-size: 95%;}
+    .akna{padding-top: 3vh;}
+    .maincontainer{width: 80%; height: 1200px;}
+}
+@media(max-width: 900px){
+    .hello-szoveg{font-size: 200%;}
+    .icon{width: 3rem;}
+    p{font-size: 65%;}
+    h2, .akna, .gomb{font-size: 90%;}
+    .maincontainer{width: 80%; height: 1200px; margin: 2rem;}
+}
+@media(max-width: 768px){
+    .hello-szoveg{font-size: 120%;}
+    p{font-size: 50%;}
+    h2, .akna, .gomb{font-size: 85%;}
+    .maincontainer{margin: 1rem;}
+}
+@media(max-width: 600px){
+    .hello-szoveg{font-size: 110%;}
+    p{font-size: 50%;}
+    h2, .akna, .gomb{font-size: 80%;}
+}
+@media(max-width: 390px){
+    .maincontainer{width: 80%; height: 1200px;}
+}
+
+.navbar {
+    position: fixed;
+    top: 10px;
+    margin-left: 14rem;
+    
+    
+  }
+  ul {
+    list-style-type: none;
+    margin: 0;
+    margin-left: 140vh;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    border-radius: 19px;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px 13px;
+    text-decoration: none;
+  }
+  
+  li a:hover {
+    background-color: #111;
+  }  
