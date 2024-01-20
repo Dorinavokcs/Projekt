@@ -122,3 +122,7 @@ countdown = setInterval(function() {
   }
 }, 1000);
 }
+function showHelp() {
+    var helpText = document.getElementById('helpText');
+    helpText.classList.toggle('active');
+}
