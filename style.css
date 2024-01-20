@@ -188,7 +188,7 @@ header h2{font-size: xx-large;}
   li a:hover {
     background-color: #111;
   }
-
+/*----------------------------------------*/
  .trio{
     margin-top: 70vh;
     text-align: center;
@@ -201,7 +201,9 @@ header h2{font-size: xx-large;}
     width: 500px;
     margin-left: 36vh;
     gap: 1px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
  }
+ /*----------------------------------------*/
  .navbar {
   position: fixed;
   top: 10px;
@@ -227,10 +229,12 @@ header h2{font-size: xx-large;}
     z-index: 1;
     font-weight: 300;
     font-size: 17px;
-    font-family: 'Roboto', 'Segoe UI', sans-serif;
     text-transform: uppercase;
     color: var(--color);
     margin-top: 3rem;
+    font-weight: bold;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-decoration: none;
    }
    
    .btn::after, .btn::before {
@@ -245,6 +249,7 @@ header h2{font-size: xx-large;}
     z-index: -1;
     transition: .5s ease-out;
     background-color: var(--color);
+  
     
    }
    
