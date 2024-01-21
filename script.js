@@ -3,6 +3,7 @@ const aknaszam= 10;
 const dobozszam = 9;
 let aknakhelye = [];
 const sorhossz = 9;
+var timestarted = false
 
 
 //A játék felület megvalósítása, mindegyik kattintható 'dobozt' különböző azonosítóval látok el, amit aztán egy osztályba sorolok, így a későbbiekben könnyen meg lehet határozni//
@@ -47,6 +48,11 @@ const boxmegjelenites = (event) =>{
     box.innerText = "💣";
     resetGame();
   } else {
+    if (!timestarted){
+      starttimer();
+      timestarted = true;
+    }
+    
     const aknak_a_kozelben = kozeliaknakrogzitese(sor, oszlop);
 
     if (aknak_a_kozelben > 0){
@@ -83,7 +89,10 @@ function kozeliaknakrogzitese(sor, oszlop) {
 //A játék felület visszaállítása alapállásba, emellett az aknák elhelyezését is újragenerálja.//
 function resetGame() {
   const boxes = document.querySelectorAll(".box");
-
+  timestarted = false;
+  clearInterval(countdown);
+  let timer = document.getElementById("ido");
+  timer.innerHTML = "0:00";
   boxes.forEach(box => {
     box.innerText = "";
     box.style.backgroundColor = "";
@@ -102,7 +111,7 @@ aknakelhelyezese();
 let countdown;
 function starttimer() {
 clearInterval(countdown);
-let timer = document.getElementById("timer");
+let timer = document.getElementById("ido");
 let time = 60;
 
 countdown = setInterval(function() {
@@ -125,4 +134,20 @@ countdown = setInterval(function() {
 function showHelp() {
     var helpText = document.getElementById('helpText');
     helpText.classList.toggle('active');
+}
+const gomb = document.getElementsByClassName("gomb")
+for (let i = 0; i < gomb.length; i++) {
+  gomb[i].addEventListener("click", hattervaltozas);
+}
+
+function hattervaltozas() {
+ const body = document.body;
+ const szin = body.style.backgroundColor;
+ const main = document.querySelector(".maincontainer");
+ if (szin != 'grey') {
+   body.style.backgroundColor = 'grey';
+   main.style.backgroundColor = `rgba(${251},${120},${120},${.9})`;
+ } else {
+   body.style.backgroundColor = '';
+ }
 }

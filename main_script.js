@@ -1,9 +1,7 @@
-<<<<<<< HEAD
-function hattervaltozas(){
-    const body = document.body;
-    const szin = body.style.backgroundColor;
-=======
->>>>>>> 64127b142322accc79de9bd07d1ce89c7743a88e
+ const gomb = document.getElementsByClassName("gomb")
+ for (let i = 0; i < gomb.length; i++) {
+   gomb[i].addEventListener("click", hattervaltozas);
+ }
 
 function hattervaltozas() {
   const body = document.body;
@@ -15,4 +13,8 @@ function hattervaltozas() {
   } else {
     body.style.backgroundColor = '';
   }
+}
+function hideText() {
+  var textElement = document.getElementById('animation');
+  textElement.style.opacity = 0;
 }
