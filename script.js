@@ -3,6 +3,7 @@ const aknaszam= 10;
 const dobozszam = 9;
 let aknakhelye = [];
 const sorhossz = 9;
+var timestarted = false
 
 
 //A játék felület megvalósítása, mindegyik kattintható 'dobozt' különböző azonosítóval látok el, amit aztán egy osztályba sorolok, így a későbbiekben könnyen meg lehet határozni//
@@ -47,6 +48,11 @@ const boxmegjelenites = (event) =>{
     box.innerText = "💣";
     resetGame();
   } else {
+    if (!timestarted){
+      starttimer();
+      timestarted = true;
+    }
+    
     const aknak_a_kozelben = kozeliaknakrogzitese(sor, oszlop);
 
     if (aknak_a_kozelben > 0){
@@ -55,7 +61,8 @@ const boxmegjelenites = (event) =>{
     box.innerText = "0";
     }
     
-    box.style.backgroundColor = "#ddd";
+    box.style.backgroundColor = "white";
+    box.classList.add("clicked");
   }
 }
 
@@ -82,10 +89,14 @@ function kozeliaknakrogzitese(sor, oszlop) {
 //A játék felület visszaállítása alapállásba, emellett az aknák elhelyezését is újragenerálja.//
 function resetGame() {
   const boxes = document.querySelectorAll(".box");
-
+  timestarted = false;
+  clearInterval(countdown);
+  let timer = document.getElementById("ido");
+  timer.innerHTML = "0:00";
   boxes.forEach(box => {
     box.innerText = "";
     box.style.backgroundColor = "";
+    box.classList.remove("clicked");
   });
 
   aknakelhelyezese();
@@ -100,12 +111,12 @@ aknakelhelyezese();
 let countdown;
 function starttimer() {
 clearInterval(countdown);
-let timer = document.getElementById("timer");
+let timer = document.getElementById("ido");
 let time = 60;
 
 countdown = setInterval(function() {
   time--;
-  let minutes = Math.floor(time / 60);
+  let minutes = Math.floor(time / 28);
   let seconds = time % 60;
 
   if (seconds < 10) {
@@ -120,3 +131,25 @@ countdown = setInterval(function() {
   }
 }, 1000);
 }
+function showHelp() {
+    var helpText = document.getElementById('helpText');
+    helpText.classList.toggle('active');
+}
+const gomb = document.querySelector(".gomb");
+for (let i = 0; i < gomb.length; i++) {
+  gomb[i].addEventListener("click", hattervaltozas);
+}
+
+const body = document.querySelector("body");
+
+
+gomb.addEventListener("click", () => {
+
+    if (body.style.backgroundColor !== "rgb(128, 128, 128)") {
+        body.style.backgroundColor = `rgb(${128},${128},${128})`;
+        gomb.style.backgroundColor = `rgb(${247}, ${202}, ${201})`;
+    } else {
+        body.style.backgroundColor = `rgba(${247}, ${202}, ${201}, ${.7})`;
+        gomb.style.backgroundColor = `rgb(${128},${128},${128})`;
+    }
+})

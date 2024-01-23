@@ -1,12 +1,17 @@
-function hattervaltozas(){
-    var body = document.body;
-    var szin = body.style.backgroundColor;
-    const main = document.querySelector(".maincontainer");
+const body = document.querySelector("body");
+const gomb = document.querySelector(".gomb");
 
-    if (szin != 'grey'){
-        body.style.backgroundColor = 'grey';
-        main.style.backgroundColor = `rgba(${251},${120},${120},${.9})`;
-    }else{
-        body.style.backgroundColor = '';
+gomb.addEventListener("click", () => {
+
+    if (body.style.backgroundColor !== "rgb(128, 128, 128)") {
+        body.style.backgroundColor = `rgb(${128},${128},${128})`;
+        gomb.style.backgroundColor = `rgb(${247}, ${202}, ${201})`;
+    } else {
+        body.style.backgroundColor = `rgba(${247}, ${202}, ${201}, ${.7})`;
+        gomb.style.backgroundColor = `rgb(${128},${128},${128})`;
     }
+})
+function hideText() {
+  let textElement = document.getElementById('animation');
+  textElement.style.opacity = 0;
 }

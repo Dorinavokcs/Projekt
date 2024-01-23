@@ -6,18 +6,27 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="main_style.css">
         <script src="main_script.js" defer></script>
+        <link rel="icon" type="image/x-icon" href="./img/icon.png">
+
         <title>Aknakereső</title>
     </head>
     <body>
         <header>
             <img src="./img/icon.png" class="icon" alt="icon" title="icon">
             <h2 class="akna">AknaMania</h2>
-            <button class="gomb" onclick="hattervaltozas()">Világos/sötét</button>
+            <button class="gomb">Világos/sötét</button>
+            <div class="navbar"><ul>
+                <li><a class="active" href="main.html">Főoldal</a></li>
+                <li><a href="game.html">Játék!</a></li>
+                <li><a href="story.html">a játék története</a></li>
+              </ul></div>
+            
         </header>
         <main>
-            <h1 class="hello-szoveg">Üdvözöllek az oldalon</h1>
+
+            <h1 class="hello-szoveg" id="animation" onclick="hideText()">Üdvözöllek az oldalon</h1>
             <div class="maincontainer">
-                <div class="main_img"></div>
+                
                 <div class="container"> 
                     <div class="card">
                         <h2 class="k">Aknakereső</h2>
@@ -31,11 +40,12 @@
                         <br> 
                         
                         <p>Kellemes és élményekben gazdag játékot kívánnak a készítők: <br><i>Ludvig-Cseri Dorina, Gyetvai Ádám és Palatinus Ágoston.</i></p>
-                        <a class="jatek" href="./game/game.html">Játék</a>
+                        <a class="jatek" href="game.html">Játék</a>
                     </div>
                 </div> 
             </div>
             
         </main>
+
     </body>
 </html>
