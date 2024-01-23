@@ -116,7 +116,7 @@ let time = 60;
 
 countdown = setInterval(function() {
   time--;
-  let minutes = Math.floor(time / 60);
+  let minutes = Math.floor(time / 28);
   let seconds = time % 60;
 
   if (seconds < 10) {
