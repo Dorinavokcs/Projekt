@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="main_style.css">
-        <script src="script.js" defer></script>
+        <script src="main_script.js" defer></script>
         <link rel="icon" type="image/x-icon" href="./img/icon.png">
 
         <title>Aknakereső</title>
@@ -14,7 +14,7 @@
         <header>
             <img src="./img/icon.png" class="icon" alt="icon" title="icon">
             <h2 class="akna">AknaMania</h2>
-            <button class="gomb" onclick="hattervaltozas()">Világos/sötét</button>
+            <button class="gomb" onclick="hattervaltozas">Világos/sötét</button>
             <div class="navbar"><ul>
                 <li><a class="active" href="main.html">Főoldal</a></li>  <!-- ide johet barmi egyelore!! -->
                 <li><a href="game.html">Játék!</a></li>
@@ -23,7 +23,8 @@
             
         </header>
         <main>
-            <h1 class="hello-szoveg">Üdvözöllek az oldalon</h1>
+
+            <h1 class="hello-szoveg" id="animation" onclick="hideText()">Üdvözöllek az oldalon</h1>
             <div class="maincontainer">
                 <div class="main_img"></div>
                 <div class="container"> 
@@ -45,5 +46,6 @@
             </div>
             
         </main>
+
     </body>
 </html>
