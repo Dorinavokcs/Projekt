@@ -7,14 +7,14 @@ function hattervaltozas() {
   const body = document.body;
   const szin = body.style.backgroundColor;
   const main = document.querySelector(".maincontainer");
-  if (szin != 'grey') {
-    body.style.backgroundColor = 'grey';
-    main.style.backgroundColor = `rgba(${251},${120},${120},${.9})`;
+  if (szin != 'rgb(${219},${211},${96})') {
+    body.style.backgroundColor = `rgb(${219},${211},${96})`;
+    main.style.backgroundColor = `rgb(${86},${20},${176})`;
   } else {
     body.style.backgroundColor = '';
   }
 }
 function hideText() {
-  var textElement = document.getElementById('animation');
+  let textElement = document.getElementById('animation');
   textElement.style.opacity = 0;
 }
