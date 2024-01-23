@@ -1,19 +1,16 @@
- const gomb = document.getElementsByClassName("gomb")
- for (let i = 0; i < gomb.length; i++) {
-   gomb[i].addEventListener("click", hattervaltozas);
- }
+const body = document.querySelector("body");
+const gomb = document.querySelector(".gomb");
 
-function hattervaltozas() {
-  const body = document.body;
-  const szin = body.style.backgroundColor;
-  const main = document.querySelector(".maincontainer");
-  if (szin != 'rgb(${219},${211},${96})') {
-    body.style.backgroundColor = `rgb(${219},${211},${96})`;
-    main.style.backgroundColor = `rgb(${86},${20},${176})`;
-  } else {
-    body.style.backgroundColor = '';
-  }
-}
+gomb.addEventListener("click", () => {
+
+    if (body.style.backgroundColor !== "rgb(128, 128, 128)") {
+        body.style.backgroundColor = rgb(${128},${128},${128});
+        gomb.style.backgroundColor = rgb(${247}, ${202}, ${201});
+    } else {
+        body.style.backgroundColor = rgba(${247}, ${202}, ${201}, ${.7});
+        gomb.style.backgroundColor = rgb(${128},${128},${128});
+    }
+});
 function hideText() {
   let textElement = document.getElementById('animation');
   textElement.style.opacity = 0;

@@ -10,10 +10,9 @@
 }
 
 body{
-    background-color: rgba(192, 172, 172, 0.75);  
+    background-color: rgba(247, 202, 201, .7);     
     margin: 0;
     font-family: 'Nunito', sans-serif;
-
 }
 
 main{
@@ -172,10 +171,10 @@ h2{margin-bottom: 1rem;}
   transition: opacity 2s ease-in-out;
 }
 .gomb{
-    background-color: rgb(247,202,201);
+    background-color:  rgb(128, 128, 128);
     border-radius: 10px;
     padding: 10px;
     margin: 10px;
     font-size: 20px;
     margin-left: auto;
-  }
+}
