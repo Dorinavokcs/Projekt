@@ -1,4 +1,7 @@
-*{box-sizing: border-box; padding: 0; margin: 0;}
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&family=Nunito:wght@400;700&display=swap');
+
+
+
 
 :root{
   --platinum: #DAE2DBff;
@@ -200,19 +203,23 @@ li a:hover {
   margin-left: 23vh;
   box-sizing: border-box;
   color: white;
-  font-family: Arial, Helvetica, sans-serif;
-  height: 800px;
+  font-family: 'Nunito', sans-serif;
+  height: 900px;
   width: 800px;
   row-gap: 12px;
   gap: 1px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 21px;
+  font-size: 23px;
+  letter-spacing: .5px
+
+  
 }
+ 
 /*----------------------------------------*/
 .navbar {
 position: fixed;
 top: 10px;
 margin-left: 14rem;
+font-family: Arial, Helvetica, sans-serif;
 
 
 
@@ -222,8 +229,7 @@ margin-left: 14rem;
 /*-------------------------gomb----------------------*/
 
 .btn {
-  --color: #00A97F;
-  --color2: rgb(10, 25, 30);
+  --color: rgba(247, 202, 201,.7);
   padding: 0.8em 1.75em;
   background-color: transparent;
   border-radius: 6px;
@@ -236,11 +242,11 @@ margin-left: 14rem;
   font-weight: 300;
   font-size: 17px;
   text-transform: uppercase;
-  color: var(--color);
   margin-top: 3rem;
   font-weight: bold;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   text-decoration: none;
+  color: white;
  }
  
  .btn::after, .btn::before {
@@ -254,7 +260,7 @@ margin-left: 14rem;
   left: 25%;
   z-index: -1;
   transition: .5s ease-out;
-  background-color: var(--color);
+  background-color: rgba(247, 202, 201,.7);
 
   
  }
@@ -274,7 +280,7 @@ margin-left: 14rem;
  }
  
  .btn:hover {
-  color: var(--color2);
+  color: rgba(247, 202, 201,.7);
  }
  
  .btn:active {
@@ -282,6 +288,13 @@ margin-left: 14rem;
   transform: scale(.98);
  }
 
+ a{
+  color: white;
+  text-decoration: none;
+  font-family: 'Nunito', sans-serif;
+ }
+
+ 
 
  /*--------------------help button------------*/
  .help {
@@ -353,9 +366,31 @@ font-size: 2vh;
   margin: 10px;
   font-size: 20px;
   margin-left: auto;
+  text-decoration: none;
 }
 
 /*------------RESPONSIVE----------*/
+@media(max-width: 1440px){
+  .icon{width: 4rem;}
+  p{font-size: 50%;}
+  .box{font-size: 95%; height: 25px; width: 25px; justify-content: center; align-items: center;}
+  .container{width: 90%; height: 1200px; justify-content: center; align-items: center; margin:0; }
+  .window{max-width: 300px; height: 450px; margin-top: 560px;}
+  label{font-size: 0px;}
+  .title{font-size: 20px;}
+  .boxok{justify-content: center; align-items: center; text-align: center;}
+  .trio{
+    width: 100vh;
+    height: 100vh;
+    margin-left: 16rem;
+    margin-top: 75vh;
+    font-size: 16px;
+    
+  }
+  
+}
+
+
 
 @media(max-width: 1400px){
   .icon{width: 4rem;}
@@ -368,12 +403,31 @@ font-size: 2vh;
   .boxok{justify-content: center; align-items: center; text-align: center;}
   .trio{
     width: 70vh;
-    height: 10vh;
+    height: 100vh;
     margin-left: 4rem;
-    margin-top: 45vh;
-    font-size: 15px;
+    margin-top: 47vh;
+    font-size: 16px;
   }
 
+}
+@media(max-width: 1280px){
+  .icon{width: 4rem;}
+  p{font-size: 50%;}
+  .box{font-size: 95%; height: 25px; width: 25px; justify-content: center; align-items: center;}
+  .container{width: 90%; height: 1200px; justify-content: center; align-items: center; margin:0; }
+  .window{max-width: 300px; height: 450px; margin-top: 560px;}
+  label{font-size: 0px;}
+  .title{font-size: 20px;}
+  .boxok{justify-content: center; align-items: center; text-align: center;}
+  .trio{
+    width: 100vh;
+    height: 100vh;
+    margin-left: 10rem;
+    margin-top: 69vh;
+    font-size: 17px;
+    
+  }
+  
 }
 @media(max-width: 1200px){
   .icon{width: 4rem;}
@@ -386,14 +440,15 @@ font-size: 2vh;
   .boxok{justify-content: center; align-items: center; text-align: center;}
   .trio{
     width: 60vh;
-    height: 10vh;
+    height: 12vh;
     margin-left: 3rem;
-    margin-top: 45vh;
-    font-size: 13px;
+    margin-top: 47vh;
+    font-size: 16px;
   }
   
 
 }
+
 
 @media(max-width: 1024px){
   
@@ -424,9 +479,10 @@ font-size: 2vh;
   .boxok{justify-content: center; align-items: center; text-align: center;}
   .trio{
     width: 90vh;
-    height: 10vh;
-    margin-left: 1.2rem;
+    height: 15vh;
+    margin-left: 1.3rem;
     margin-top: 50vh;
+    font-size: 19px;
   }
 }
 @media(max-width: 768px){
@@ -443,7 +499,7 @@ font-size: 2vh;
     height: 10vh;
     margin-left: 4rem;
     margin-top: 45vh;
-    font-size: 15px;
+    font-size: 18px;
     
   }
 }
@@ -460,8 +516,8 @@ font-size: 2vh;
     width: 55vh;
     height: 100vh;
     margin-left: 2.5rem;
-    margin-top: 43vh;
-    font-size: 13.5px;
+    margin-top: 45vh;
+    font-size: 16px;
     
   }
 }
@@ -476,10 +532,13 @@ font-size: 2vh;
   .boxok{justify-content: center; align-items: center; text-align: center;}
   .trio{
     width: 30vh;
-    height: 100vh;
+    height: 20vh;
     margin-left: 3.5rem;
-    margin-top: 43vh;
-    font-size: 9.5px;
+    margin-top: 45vh;
+    font-size: 12px;
     
   }
 }
+
+
+
